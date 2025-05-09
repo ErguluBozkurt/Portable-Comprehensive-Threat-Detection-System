@@ -25,7 +25,23 @@ TCTT, çevredeki fiziksel tehditleri algılayabilen taşınabilir bir güvenlik 
 | Servo Motor | SG90 | 1 |
  
 ## 📂 Yazılım Mimarisi 
-``` TCTT/ ├── include/ │ ├── TCTT.h ├── src/ │ ├── main.cpp │ ├── setup_functions.cpp │ ├── pir_manager.cpp │ ├── radar_manager.cpp │ ├── audio_manager.cpp │ ├── thermal_manager.cpp │ ├── gps_manager.cpp │ └── display_manager.cpp ├── platformio.ini └── README.md ``` 
+```
+TCTT/
+├── include/
+│ └── TCTT.h
+├── src/
+│ ├── main.cpp
+│ ├── setup_functions.cpp
+│ ├── pir_manager.cpp
+│ ├── radar_manager.cpp
+│ ├── audio_manager.cpp
+│ ├── thermal_manager.cpp
+│ ├── gps_manager.cpp
+│ └── display_manager.cpp
+├── platformio.ini
+└── README.md
+
+``` 
 ![mimari](https://github.com/user-attachments/assets/578af844-9e3d-407d-9332-73b01508d95c)
 
 
