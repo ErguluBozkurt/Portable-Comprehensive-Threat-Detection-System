@@ -1,10 +1,17 @@
-// PIR sensöründen hareket algılama
-int pirValue = digitalRead(pirPin);  // PIR sensöründen gelen dijital değer
+#include "TCTT.h"
 
-if (pirValue == HIGH) {  // Hareket algılandıysa
-  display.clearDisplay();
-  display.setCursor(0, 0);
-  display.println("Hareket Algilandi!");
-  myservo.write(90);  // Servo motoru 90 derece döndür
-  delay(500);  // Hareket algılandıktan sonra kısa bir süre bekle
+void readPIR() {
+  static unsigned long lastTrigger = 0;
+  int pirValue = digitalRead(pirPin);
+  
+  if (pirValue == HIGH && millis() - lastTrigger > 5000) {
+    lastTrigger = millis();
+    updateDisplay("Hareket Algilandi!", 3);
+    myservo.write(90);
+    triggerAlarm();
+    
+    // 2 saniye sonra servo eski konumuna dönsün
+    delay(2000);
+    myservo.write(0);
+  }
 }
