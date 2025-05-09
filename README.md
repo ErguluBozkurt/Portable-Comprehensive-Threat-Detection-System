@@ -41,6 +41,8 @@ TCTT/
 ├── platformio.ini
 └── README.md
 
+![mimari](https://github.com/user-attachments/assets/578af844-9e3d-407d-9332-73b01508d95c)
+
 
 ## 🔧 Kurulum
 
@@ -53,4 +55,4 @@ TCTT/
 
 1. Depoyu klonlayın:
    ```bash
-   git clone https://github.com/kullanici/TCTT.git
+   git clone https://github.com/ErguluBozkurt/Portable-Comprehensive-Threat-Detection-System.git
