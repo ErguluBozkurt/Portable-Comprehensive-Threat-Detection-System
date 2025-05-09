@@ -1,9 +1,13 @@
-// Radar sensör yönetimi
-int radarValue = analogRead(radarPin);  // Radar değerini oku
-float radarDistance = map(radarValue, 0, 1023, 0, 500);  // Mesafeyi ölçmek için analog değeri mesafeye çevir
+#include "TCTT.h"
 
-if (radarDistance < 10) {  // Eğer mesafe 10 cm'nin altındaysa tehdit algılandı
-  display.clearDisplay();
-  display.setCursor(0, 10);
-  display.println("Radar: Tehdit Tespiti");
+void readRadar() {
+  static unsigned long lastTrigger = 0;
+  int radarValue = analogRead(radarPin);
+  
+  if (radarValue > RADAR_THRESHOLD && millis() - lastTrigger > 3000) {
+    lastTrigger = millis();
+    String message = "Radar: " + String(radarValue);
+    updateDisplay(message, 2);
+    triggerAlarm();
+  }
 }
