@@ -1,9 +1,13 @@
-// Akustik sensör verisi
-int micValue = analogRead(micPin);  // Mikrofonun analog değerini oku
+#include "TCTT.h"
 
-// Ses seviyesi yüksekse, tehdit olabilir
-if (micValue > 500) {
-  display.clearDisplay();
-  display.setCursor(0, 20);
-  display.println("Akustik: Tehdit Tespiti");
+void readAudio() {
+  static unsigned long lastTrigger = 0;
+  int micValue = analogRead(micPin);
+  
+  if (micValue > AUDIO_THRESHOLD && millis() - lastTrigger > 3000) {
+    lastTrigger = millis();
+    String message = "Ses Algilandi: " + String(micValue);
+    updateDisplay(message, 4);
+    triggerAlarm();
+  }
 }
